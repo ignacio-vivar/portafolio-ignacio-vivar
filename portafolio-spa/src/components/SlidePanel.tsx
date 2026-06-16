@@ -32,7 +32,7 @@ export function SlidePanel({ project, onClose, children }: Props) {
 
       {/* panel */}
       <div
-        className={`fixed top-0 right-0 h-full w-full sm:w-[80vw] lg:w-[50vw] bg-[var(--bg2)] border-l border-[var(--border)] z-50 flex flex-col transition-transform duration-300 ease-in-out ${project ? 'translate-x-0' : 'translate-x-full'}`}
+        className={`fixed top-0 right-0 h-full w-full sm:w-[95vw] lg:w-[85vw] bg-[var(--bg2)] border-l border-[var(--border)] z-50 flex flex-col transition-transform duration-300 ease-in-out ${project ? 'translate-x-0' : 'translate-x-full'}`}
       >
         {/* header */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-[var(--border)]">
@@ -101,9 +101,9 @@ export function SlidePanel({ project, onClose, children }: Props) {
                 e.stopPropagation()
                 window.open(project.repo, '_blank')
               }}
-              className="font-mono text-[10px] text-[var(--text-muted)] hover:text-[var(--g)] transition-colors tracking-wide"
+              className="font-mono text-[18px] text-[var(--g)] hover:text-[var(--g-dim)] transition-colors tracking-wide cursor-pointer border"
             >
-              → github repo
+              github repo url
             </button>
           )}
           {/* highlights */}
@@ -144,11 +144,11 @@ export function SlidePanel({ project, onClose, children }: Props) {
                   <CarouselContent>
                     {project.screenshots.map((src, i) => (
                       <CarouselItem key={i}>
-                        <div className="w-full h-[220px] overflow-hidden rounded-lg border border-[var(--border)]">
+                        <div className="w-full h-[768px] overflow-hidden rounded-lg border border-[var(--border)]">
                           <img
                             src={src}
                             alt={`${project.name} screenshot ${i + 1}`}
-                            className="w-full h-full object-cover object-top"
+                            className="w-full h-full object-fit object-top"
                           />
                         </div>
                       </CarouselItem>
@@ -166,9 +166,9 @@ export function SlidePanel({ project, onClose, children }: Props) {
               href={project.url}
               target="_blank"
               rel="noreferrer"
-              className="font-mono text-xs text-[var(--g)] border border-[var(--border)] bg-[var(--g-glow)] px-4 py-2.5 rounded text-center tracking-wide hover:bg-[var(--g-glow-strong)] transition-colors mt-auto"
+              className="font-mono text-[14px] border border-[var(--border)] bg-[rgba(57,138,211,0.4)] !text-[rgba(57,240,240,1)]  px-3 py-1.5 rounded text-center tracking-wide hover:bg-[rgba(57,138,211,0.7)] transition-colors"
             >
-              → view live
+              url-page
             </a>
           )}
         </div>

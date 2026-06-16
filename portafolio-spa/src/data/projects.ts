@@ -27,25 +27,27 @@ export const projects: Project[] = [
     status: 'live',
     stack: ['next.js', 'fastapi', 'supabase', 'postgresql', 'shadcn/ui', 'tanstack table'],
     url: 'https://gim-project.vercel.app',
-    detail: 'Real-world SaaS app. Handles exercises (reps & timed), routines, student management, and auto-scheduling via APScheduler. Supabase auth with protected routes, Row-Level Security, and a custom backend on Render.',
+    detail: 'Real-world SaaS app. Handles exercises (reps & timed), routines, student management. Supabase auth with protected routes, RLS',
     year: '2024 — present',
     role: 'solo project',
-    repo: 'https://github.com/tuuser/gimtest',
+    repo: 'https://github.com/ignacio-vivar/gim-project',
     highlights: [
       'APScheduler for automatic session status transitions',
       'Row-Level Security with SECURITY DEFINER functions',
+      'Supabase updates for user roles',
       'TanStack Table for complex data views',
       'Custom schedule template with per-day start times',
+      'Components to solve, exercises management and routines, with time-line of scheduled sessions'
     ],
     challenges: [
-      'Supabase Auth + FastAPI JWT integration without double evaluation',
+      'Supabase Auth integration',
       'Docker port reservation conflicts on WSL2',
       'ARRAY(Time) columns with SQLAlchemy ORM',
+      'Optimization of loading times for components'
     ],
     screenshots: [
       'https://images.dog.ceo/breeds/shiba/shiba-1.jpg',
       'https://images.dog.ceo/breeds/shiba/shiba-2.jpg',
-      'https://images.dog.ceo/breeds/shiba/shiba-3.jpg',
     ]
   },
   {
@@ -58,6 +60,8 @@ export const projects: Project[] = [
     stack: ['astro', 'mdx', 'google drive', 'vercel', 'antigravity'],
     url: 'https://cdf-vivar.vercel.app',
     detail: 'Material preview & download site built in Astro. Uses MDX for content and links files stored in Google Drive. First project using Antigravity for agentic AI-assisted development.',
+    highlights: ['fast and usefull webpage for students', 'easy implemntation of new content', 'powerfull MDX format to use markdown and components'],
+    challenges: ['manual instalation of dependencies, agents have trouble with dependencies managment']
   },
   {
     id: 'cdf-cnc',

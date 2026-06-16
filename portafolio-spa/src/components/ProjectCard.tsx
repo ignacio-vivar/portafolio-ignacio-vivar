@@ -66,9 +66,9 @@ export function ProjectCard({ project, children, onDetail }: Props) {
                 target="_blank"
                 rel="noreferrer"
                 onClick={e => e.stopPropagation()}
-                className="font-mono text-[10px] text-[var(--g)] border border-[var(--border)] bg-[var(--g-glow)] px-3 py-1.5 rounded text-center tracking-wide hover:bg-[var(--g-glow-strong)] transition-colors"
+                className="font-mono text-[14px] border border-[var(--border)] bg-[rgba(57,138,211,0.4)] !text-[rgba(57,240,240,1)]  px-3 py-1.5 rounded text-center tracking-wide hover:bg-[rgba(57,138,211,0.7)] transition-colors"
               >
-                → view live
+                url-page
               </a>
             )}
             <button
@@ -76,9 +76,9 @@ export function ProjectCard({ project, children, onDetail }: Props) {
                 e.stopPropagation()  // evita que flipee la card
                 onDetail?.()
               }}
-              className="font-mono text-[10px] text-[var(--g)] border border-[var(--border)] bg-[var(--g-glow)] px-3 py-1.5 rounded text-center tracking-wide hover:bg-[var(--g-glow-strong)] transition-colors"
+              className="font-mono text-[14px] text-[var(--g)] border border-[var(--border)] bg-[var(--g-glow)] px-3 py-1.5 rounded text-center tracking-wide hover:bg-[var(--g-glow-strong)] transition-colors"
             >
-              → more details
+              details
             </button>
           </div>
           {children ?? (
