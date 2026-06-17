@@ -9,6 +9,25 @@ import {
   type CarouselApi,
 } from '@/components/ui/carousel.tsx'
 
+function IframeSlide({ src }: { src: string }) {
+  const [loaded, setLoaded] = useState(false)
+  return (
+    <div className="relative w-full h-full">
+      {!loaded && (
+        <div className="absolute inset-0 flex flex-col items-center justify-center bg-[var(--bg3)] gap-2">
+          <div className="w-5 h-5 border-2 border-[var(--g)] border-t-transparent rounded-full animate-spin" />
+          <span className="font-mono text-[20px] text-[var(--g)] opacity-60 tracking-widest">loading preview...</span>
+        </div>
+      )}
+      <iframe
+        src={src}
+        onLoad={() => setLoaded(true)}
+        className={`w-full h-full pointer-events-none transition-opacity duration-300 ${loaded ? 'opacity-100' : 'opacity-0'}`}
+      />
+    </div>
+  )
+}
+
 
 type Props = {
   project: Project | null
@@ -45,6 +64,8 @@ export function SlidePanel({ project, onClose, children }: Props) {
       <div
         className={`fixed top-0 right-0 h-full w-full sm:w-[95vw] lg:w-[85vw] bg-[var(--bg2)] border-l border-[var(--border)] z-50 flex flex-col transition-transform duration-300 ease-in-out ${project ? 'translate-x-0' : 'translate-x-full'}`}
       >
+
+
         {/* header */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-[var(--border)]">
           <div>
@@ -125,10 +146,10 @@ export function SlidePanel({ project, onClose, children }: Props) {
           {/* highlights */}
           {project?.highlights && (
             <div>
-              <p className="font-mono text-[10px] text-[var(--g)] tracking-widest uppercase opacity-70 mb-2">highlights</p>
+              <p className="font-mono text-[var(--g)] tracking-widest uppercase opacity-70 mb-2">highlights</p>
               <ul className="flex flex-col gap-1.5">
                 {project.highlights.map(h => (
-                  <li key={h} className="font-mono text-xs text-[var(--text-dim)] flex gap-2">
+                  <li key={h} className="font-mono text-[var(--text-dim)] flex gap-2">
                     <span className="text-[var(--g)] opacity-60">✔️</span>
                     {h}
                   </li>
@@ -140,10 +161,10 @@ export function SlidePanel({ project, onClose, children }: Props) {
           {/* challenges */}
           {project?.challenges && (
             <div>
-              <p className="font-mono text-[10px] text-[var(--g)] tracking-widest uppercase opacity-70 mb-2">challenges</p>
+              <p className="font-mono  text-[var(--g)] tracking-widest uppercase opacity-70 mb-2">challenges</p>
               <ul className="flex flex-col gap-1.5">
                 {project.challenges.map(c => (
-                  <li key={c} className="font-mono text-xs text-[var(--text-dim)] flex gap-2">
+                  <li key={c} className="font-mono text-[var(--text-dim)] flex gap-2">
                     <span className="text-[var(--accent-orange)] opacity-60">🦾</span>
                     {c}
                   </li>
@@ -167,7 +188,7 @@ export function SlidePanel({ project, onClose, children }: Props) {
                     {project.screenshots.map((src, i) => (
                       <CarouselItem key={i}>
                         <div className="w-full h-[768px] overflow-hidden rounded-lg border border-[var(--border)]">
-                          <iframe src={src} className='object-fit w-full h-full pointer-events-none'></iframe>
+                          <IframeSlide src={src} />
                         </div>
                       </CarouselItem>
                     ))}
@@ -175,7 +196,8 @@ export function SlidePanel({ project, onClose, children }: Props) {
                   <CarouselPrevious className="left-0 bg-[var(--bg3)] border-[var(--border)] text-[var(--g)] hover:bg-[var(--bg4)] hover:text-[var(--g)]" />
                   <CarouselNext className="right-0 bg-[var(--bg3)] border-[var(--border)] text-[var(--g)] hover:bg-[var(--bg4)] hover:text-[var(--g)]" />
                 </div>
-              </Carousel>            </div>
+              </Carousel>
+            </div>
           )}
 
 

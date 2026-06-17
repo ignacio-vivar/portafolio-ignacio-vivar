@@ -93,7 +93,8 @@ The site is public and requires no login — it was designed as an alternative t
     detail: 'Educational CNC resource platform. Pre-designed in Figma before dev. File serving via FastAPI backend — fast to ship, not ideal for CDN scaling. Real constraint, real lesson.',
     summary: `This was the first project I built in React. 
 I used browser-based AI assistance, but a significant portion of the work was done by hand, which made development considerably slower. 
-The goal was to give students easy access to all available course materials in one place. As you can see, this project has a clear design mistake: I stored the files directly on the backend server instead of using a dedicated file hosting service.`,
+The goal was to give students easy access to all available course materials in one place. As you could see if you watch the backend repo, this project has a clear design mistake: 
+I stored the files directly on the backend server instead of using a dedicated file hosting service.`,
     screenshots: ['https://drive.google.com/file/d/1Hw373RNZ-B73ykq4iibmBbo_-bv4iH0O/preview']
   },
   {
@@ -104,8 +105,10 @@ The goal was to give students easy access to all available course materials in o
     isAlive: true,
     status: 'running',
     repos: [{ label: 'repo', url: 'https://github.com/ignacio-vivar/bot_telegram' }],
-    stack: ['python', 'telegram bot api', 'fatsecret api', 'vps'],
+    stack: ['python', 'telegram bot api', 'fatsecret api', 'fastapi', 'vps'],
     detail: 'Personal Telegram bot for nutrition tracking. Access-controlled via Telegram user ID. Deployed on a VPS for 24/7 uptime — no cloud functions, no complexity.',
+    highlights: ['Usage of VPS', 'Bot only functional for myself'],
+    challenges: ['Retrieve all meals information into a json file', '3 steps authentication token for users in FatSecret API'],
     summary: `I discovered that the FatSecret API exposes free endpoints, so I decided to build a Telegram bot to reduce the time I spend logging calories and food intake.
 I read the FatSecret API docs and used Postman to understand how to obtain tokens. Then I tested the endpoints — some had restrictions, but I found useful ones for searching foods.
 I used the fuzzy library to match similar search terms, and FastAPI to keep the server running. For access control, I restricted the bot to my own Telegram ID.
@@ -121,13 +124,17 @@ Another key finding was that it was straightforward to write scripts to retrieve
     description: 'Document management app, mobile-first. Custom FastAPI auth, never reached production.',
     isAlive: false,
     status: 'archived',
-    stack: ['react', 'fastapi', 'jwt auth', 'mobile-first'],
+    stack: ['react', 'fastapi', 'jwt auth', 'mobile-first', 'shadcn', 'notion'],
     detail: 'Mobile-first document management. Manual JWT auth with FastAPI — no OAuth library, custom token handling. Functional but never deployed.',
     summary: `This project was commissioned by a group of doctors.
 I teamed up with a developer friend, but we eventually stopped working on it because we couldn't find a sustainable balance between the time we were investing and the effort required 
 to maintain a large-scale app — plus the hosting costs. The project was private, and aimed to solve scheduling and workflow difficulties for medical staff.
 In this process we refactored many components and tried to follow best practices — which had two sides: it made components, hooks, and structure more reusable across projects, 
-but it consumed a lot of time and the app never got close to the original vision.`
+but it consumed a lot of time and the app never got close to the original vision.`,
+    highlights: ['Selection of shadcn to UI framework'],
+    challenges: ['Understanding the code of my teammate and his business logic'],
+
+    screenshots: ['https://drive.google.com/file/d/1Cy8xBYiVTPccKU4TTbQzkMaHCLs1ga7d/preview']
   },
   {
     id: 'proposite',
@@ -141,11 +148,19 @@ but it consumed a lot of time and the app never got close to the original vision
     { label: 'backend', url: 'https://github.com/ignacio-vivar/backend_proposite_project' }],
     stack: ['react', 'tanstack table', 'fastapi', 'manual auth'],
     detail: 'Built to learn, not to ship. First hands-on use of TanStack Table. The patterns carried forward to GimTest.',
+    highlights: ['Learn to use React TanStack Table'],
+    challenges: ['Optimization of hooks and requests to update data in tables'],
     summary: `In this project I learned how to use TanStack Table, which proved very useful.
 The app was functional but I have to admit it had serious performance issues in the teacher dashboard.
 I designed it with a dual-view approach — one for teachers, one for students — with the goal of delivering grade feedback digitally.
 The turning point was that students were no longer allowed to use their phones in class, so I decided to archive the project.
 The solution was designed in a hard-coded way, built specifically around my own subjects. It could be refactored for broader use, but at the time that wasn't the goal.
-It had a desktop view for teachers and a mobile view for students.`
+It had a desktop view for teachers and a mobile view for students.`,
+    screenshots: ['https://drive.google.com/file/d/1BsZ22H-gjimYjxBZg7TwG0p3Cm9M0Ukw/preview',
+      'https://drive.google.com/file/d/19elWunU6P_QX2KvptjAltN86RezlovBg/preview',
+      'https://drive.google.com/file/d/1RTJaCvfQdVbVg18gPmyt0I_Lm0pQwaWe/preview',
+      'https://drive.google.com/file/d/1Hbn2ZLOzhO_OdNBb1C5dPi7VQI0_yBsJ/preview',
+      'https://drive.google.com/file/d/16b03ffVcy41viJCbDK6G02ljTBbzgKhi/preview']
+
   },
 ]

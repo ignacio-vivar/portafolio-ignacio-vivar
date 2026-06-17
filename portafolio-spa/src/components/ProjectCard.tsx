@@ -76,7 +76,7 @@ export function ProjectCard({ project, children, onDetail }: Props) {
                 e.stopPropagation()  // evita que flipee la card
                 onDetail?.()
               }}
-              className="font-mono text-[14px] text-[var(--g)] border border-[var(--border)] bg-[var(--g-glow)] px-3 py-1.5 rounded text-center tracking-wide hover:bg-[var(--g-glow-strong)] transition-colors"
+              className="font-mono text-[14px] text-[var(--g)] cursor-pointer border border-[var(--border)] bg-[var(--g-glow)] px-3 py-1.5 rounded text-center tracking-wide hover:bg-[var(--g-glow-strong)] transition-colors"
             >
               details
             </button>
@@ -86,11 +86,6 @@ export function ProjectCard({ project, children, onDetail }: Props) {
               {project.detail}
             </p>
           )}
-          <div className="flex flex-wrap gap-1.5">
-            {project.stack.map(s => (
-              <span key={s} className="tag text-[9px] py-0.5 px-1.5">{s}</span>
-            ))}
-          </div>
 
 
           <p className="font-mono text-[9px] text-[var(--text-muted)] text-right tracking-widest">click to flip back ↺</p>

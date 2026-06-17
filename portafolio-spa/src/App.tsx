@@ -7,14 +7,12 @@ function App() {
   const [active, setActive] = useState<typeof projects[0] | null>(null)
   return (
     <div className="min-h-screen flex flex-col">
-      <header className="flex items-center justify-between px-10 py-3 border-b border-[var(--border)]">
-        <span className="mono text-sm text-[var(--g)]">&gt; nacho.dev</span>
+      <header className="flex items-center justify-end px-10 py-3 border-b border-[var(--border)]">
         <nav className="flex gap-6">
           <a href="#projects" className="mono text-xs text-[var(--text-muted)] hover:text-[var(--g)] transition-colors">projects</a>
           <a href="#contact" className="mono text-xs text-[var(--text-muted)] hover:text-[var(--g)] transition-colors">contact</a>
         </nav>
       </header>
-
       <div>
         <div className="px-10 py-7">
           <p className="font-mono text-xs text-[var(--g)] tracking-widest uppercase mb-3 opacity-80">
@@ -46,6 +44,7 @@ function App() {
         <div id="contact" className="flex gap-4">
           <a href="https://github.com/ignacio-vivar" className="mono text-xs text-[var(--g)] opacity-70 hover:opacity-100 transition-opacity">github</a>
           <a href="mailto:ignacio.vivar.cruz@gmail.com" className="mono text-xs text-[var(--g)] opacity-70 hover:opacity-100 transition-opacity">email</a>
+          <a href="https://www.linkedin.com/in/ignacio-vivar-cruz/" className="mono text-xs text-[var(--g)] opacity-70 hover:opacity-100 transition-opacity">LinkedIn</a>
         </div>
       </footer>
       <SlidePanel
